@@ -1,0 +1,26 @@
+// Colors
+$black1: #24232c
+$black2: #18171F
+$gray: #817d92
+$white: #e6e5ea
+$green: #A4FFAF
+$red: #F64A4A
+$orange: #fb7c58
+$yellow: #f8cd65
+
+//Fonts 
+$font1: 'JetBrainsMonoBold'
+$font2: 'JetBrainsMonoBoldItalic'
+
+
+
+@mixin level($value)
+    @if $value == "1"
+        background-color: $red
+    @else if $value == "2"
+        background-color: $orange
+    @else if $value == "3"
+        background-color: $yellow
+    @else if $value == "4"
+        background-color: $green
+    

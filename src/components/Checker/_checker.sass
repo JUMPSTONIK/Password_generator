@@ -1,2 +1,51 @@
-import './_checker.sass'
 
+@import "./../../styles/_globals"
+
+.checker
+    display: flex
+    align-items: center
+    gap: 24px
+    display: block
+    position: relative
+    padding-left: 35px
+    cursor: pointer
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    @include text("text","medium")
+    
+    & input
+        position: absolute
+        opacity: 0
+        cursor: pointer
+        height: 0
+        width: 0
+
+    & input:checked ~ &--checkmark 
+        background-color: $green
+
+    & input:checked ~ &--checkmark:after 
+        display: block
+
+
+    &--checkmark 
+        position: absolute
+        top: 0
+        left: 0
+        height: 20px
+        width: 20px
+        background-color: #eee
+
+    &--checkmark:after 
+        content: ""
+        position: absolute
+        display: none
+
+    &--checkmark:after 
+        left: 4px
+        top: 4px
+        width: 8px
+        height: 5px
+        border: solid $black1
+        border-width: 0 3px 3px 0
+        transform: scaleX(-1) rotate(45deg)

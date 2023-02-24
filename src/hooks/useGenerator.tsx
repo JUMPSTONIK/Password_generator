@@ -1,36 +1,23 @@
 import React from 'react';
 
+interface levelsTypes {
+    [key: number]: { class: string; type: string };
+}
+
+const strengthLevels: levelsTypes = {
+    5: { class: 'level5', type: 'STRONG' },
+    4: { class: 'level4', type: 'MEDIUM' },
+    3: { class: 'level3', type: 'WEAK' },
+    2: { class: 'level2', type: 'TOO WEAK' },
+    1: { class: 'level1', type: '' },
+};
+
 export const useGenerator = () => {
-    const checkPasswordStrength = (password: string) => {
-        let strength = 0;
-
-        // check length of password
-        if (password.length >= 8) {
-            strength += 1;
-        }
-
-        // check for uppercase letters
-        if (/[A-Z]/.test(password)) {
-            strength += 1;
-        }
-
-        // check for lowercase letters
-        if (/[a-z]/.test(password)) {
-            strength += 1;
-        }
-
-        // check for numbers
-        if (/[0-9]/.test(password)) {
-            strength += 1;
-        }
-
-        // check for special characters
-        // if (/[!@#$%^&*()_+\\-=\\[\\]{};':"\\\\|,.<>\\/?]/.test(password)) {
-        if (/[!@#$%^&*()_+\\-=\\[\\]{};':"\\\\|,.<>\\/.test(password)) {
-            strength += 1;
-        }
-
-        return strength;
+    const getStrengthClass = (strength: number) => {
+        return strengthLevels[strength].class;
     };
-    return {};
+    const getStrengthType = (strength: number) => {
+        return strengthLevels[strength].type;
+    };
+    return { getStrengthClass, getStrengthType };
 };

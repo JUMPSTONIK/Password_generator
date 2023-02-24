@@ -1,19 +1,35 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, Action } from '@reduxjs/toolkit';
+import { levelTypes } from '../components/Level/Level';
 
 interface GeneratorStateTypes {
     strength: number;
     password: string;
     checkTexts: string[];
+    levels: levelTypes[];
 }
 
 const initialState: GeneratorStateTypes = {
-    strength: 0,
+    strength: 5,
     password: '',
     checkTexts: [
         'Include Uppercase Letters',
         'Include Lowercase Letters',
         'Include Numbers',
         'Include Symbols',
+    ],
+    levels: [
+        {
+            conditional: 2,
+        },
+        {
+            conditional: 3,
+        },
+        {
+            conditional: 4,
+        },
+        {
+            conditional: 5,
+        },
     ],
 };
 

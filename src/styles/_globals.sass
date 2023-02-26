@@ -9,9 +9,8 @@ $orange: #fb7c58
 $yellow: #f8cd65
 
 //Fonts 
-$font1: 'JetBrainsMonoBold'
-$font2: 'JetBrainsMonoBoldItalic'
-
+$font1: JetBrainsMonoBold
+$font2: JetBrainsMonoBoldItalic
 
 
 @mixin level($value)
@@ -53,11 +52,13 @@ $font2: 'JetBrainsMonoBoldItalic'
         color: $white
         font-size: 2.4rem
         line-height: 32px
+        text-transform: uppercase
     @else if $type == "title" and $size == "medium"
         color: $gray
         text-align: center
         font-size: 1.8rem
         line-height: 24px
+        text-transform: uppercase
     @else if $type == "button" and $size == "medium"
         color: $black1
         text-align: right

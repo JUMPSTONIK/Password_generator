@@ -1,4 +1,21 @@
 @import "./../../styles/_globals"
-    
-.meter_container
-    @include container("meter")
+
+.meter
+    display: flex
+    justify-content: space-between
+    @include container('meter')
+
+    & h2
+        @include text("title", "medium")
+
+    &--levels
+        display: flex
+        align-items: center
+        gap: 15.5px
+
+        & p
+            @include text("text","large")
+
+        &--indicator
+            display: flex
+            gap: 8px

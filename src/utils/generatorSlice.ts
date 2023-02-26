@@ -1,21 +1,35 @@
-import { createSlice, PayloadAction, Action } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { levelTypes } from '../components/Level/Level';
 
+interface checkBox{
+    value: boolean;
+    text: string;
+    }
 interface GeneratorStateTypes {
     strength: number;
     password: string;
-    checkTexts: string[];
+    checkBoxes: checkBox[];
     levels: levelTypes[];
 }
+
+
 
 const initialState: GeneratorStateTypes = {
     strength: 5,
     password: '',
-    checkTexts: [
-        'Include Uppercase Letters',
-        'Include Lowercase Letters',
-        'Include Numbers',
-        'Include Symbols',
+    checkBoxes: [{
+        value: false,
+        text:'Include Uppercase Letters',
+    },{
+        value:false,
+        text:'Include Lowercase Letters',
+    },{
+        value: false,
+        text:'Include Numbers',
+    },{
+        value:false,
+        text:'Include Symbols',
+    }
     ],
     levels: [
         {
@@ -46,9 +60,15 @@ export const generatorSlice = createSlice({
         createPassword: (state, action: PayloadAction<string>) => {
             state.password = action.payload;
         },
-    },
-});
+        setCheckboxValue: (state, action: PayloadAction<string>) =>{
+            const checkboxIndex = state.checkBoxes.findIndex(checkBox => checkBox.text === action.payload)
+            let newCheckboxes = [...state.checkBoxes]
+            newCheckboxes[checkboxIndex].value = !state.checkBoxes[checkboxIndex].value
+            state.checkBoxes = newCheckboxes
+        }
 
-export const { increment, decrement, createPassword } = generatorSlice.actions;
+}});
+
+export const { increment, decrement, createPassword,setCheckboxValue } = generatorSlice.actions;
 
 export default generatorSlice.reducer;

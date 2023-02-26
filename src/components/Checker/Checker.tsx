@@ -1,17 +1,21 @@
-import React from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/reducerHooks';
 import './_checker.sass';
+import {setCheckboxValue } from './../../utils/generatorSlice'
 interface inputTypes {
-    text: string;
+    text: string,
+    value: boolean
 }
 
 export const Checker = (props: inputTypes) => {
-    console.log(props.text);
+    const dispatch = useAppDispatch()
+    // console.log(props.text);
     return (
         <label className="checker">
             <input
                 style={{ fontSize: '20px' }}
+                onChange={()=> dispatch(setCheckboxValue(props.text))}
                 type={`checkbox`}
-                checked={false}
+                checked={props.value}
             />
             <span className="checker--checkmark"></span>
             {props.text}

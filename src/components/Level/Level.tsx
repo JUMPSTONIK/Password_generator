@@ -13,7 +13,7 @@ export const Level = (props: levelTypes) => {
     return (
         <div
             className={
-                strength >= props.conditional
+                strength  >= props.conditional
                     ? getStrengthClass(strength)
                     : 'level1'
             }

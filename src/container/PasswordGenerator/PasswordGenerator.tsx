@@ -2,18 +2,23 @@ import React from 'react';
 import './_passwordGenerator.sass';
 import { useAppSelector} from './../../hooks/reducerHooks';
 import { IconCopy } from '../../assets/images/IconCopy';
+import { useGenerator } from '../../hooks/useGenerator';
 
 export const PasswordGenerator = () => {
-    const password = useAppSelector((state) => state.generator.password);
+    const {setOnClipBoard} = useGenerator()
+    const {password, isCopied} = useAppSelector((state) => state.generator);
     return (
-        <div className="password_container">
+        <div className="password">
             <input
-                className="password_container--input_field"
+                className="password--input_field"
                 placeholder="P4$5W0rD!"
                 value={password}
                 readOnly
             />
-            <IconCopy/>
+            {isCopied && <p className='password--copied'>Copied</p>}
+            <button className='password--btn' onClick={setOnClipBoard}>
+                <IconCopy/>
+            </button>
         </div>
     );
 };

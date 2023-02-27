@@ -64,7 +64,17 @@ $font2: JetBrainsMonoBoldItalic
         text-align: right
         font-size: 1.8rem
         line-height: 24px
-    
+    @else if $type =="length" and $size == "large"
+        color: $green
+        font-size: 3.2rem
+        line-height: 42px
+    @else if $type == "copied" and $size == "medium"
+        color: $green
+        font-size: 1.8rem
+        line-height: 24px
+        text-transform: uppercase
+
+
 @mixin container($type)
     background-color: $black1
     display: flex

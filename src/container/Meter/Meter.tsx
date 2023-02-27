@@ -12,7 +12,7 @@ export const Meter = () => {
         <div className='meter--levels'>
             <p>{getStrengthType(strength)}</p>
             <div className='meter--levels--indicator'>
-                {levels.map( state => <Level conditional={state.conditional}/>)}
+                {levels.map( state => <Level key={state.conditional} conditional={state.conditional}/>)}
             </div>
         </div>
     </div>;

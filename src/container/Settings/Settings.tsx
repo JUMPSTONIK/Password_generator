@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-
+import './_settings.sass'
 interface settingsTypes {
     children: ReactNode;
 }

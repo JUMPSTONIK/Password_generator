@@ -1,28 +1,23 @@
 import './App.sass';
 import { Button } from './components/Button/Button';
-import { Checker } from './components/Checker/Checker';
+import { CharacterField } from './components/CharacterField/CharacterField';
 import { Slider } from './components/Slider/Slider';
 import { Title } from './components/Title/Title';
 import { CheckBoxes } from './container/CheckBoxes/CheckBoxes';
 import { Meter } from './container/Meter/Meter';
 import { PasswordGenerator } from './container/PasswordGenerator/PasswordGenerator';
 import { Settings } from './container/Settings/Settings';
-import { useAppSelector} from './hooks/reducerHooks';
 
 function App() {
-    const checkBoxes = useAppSelector((state) => state.generator.checkBoxes);
     // console.log(checkBoxes);
     return (
-        <div className="">
+        <div className="password_generator">
             <Title title={`Password Generator`} />
             <PasswordGenerator />
             <Settings>
+                <CharacterField/>
                 <Slider/>
-                <CheckBoxes>
-                    {checkBoxes.map((checkBox) => (
-                        <Checker key={checkBox.text} text={checkBox.text} value={checkBox.value} />
-                    ))}
-                </CheckBoxes>
+                <CheckBoxes/>
                 <Meter />
                 <Button/>
             </Settings>

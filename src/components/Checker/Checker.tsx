@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '../../hooks/reducerHooks';
+import { useAppDispatch} from '../../hooks/reducerHooks';
 import './_checker.sass';
 import {setCheckboxValue } from './../../utils/generatorSlice'
 interface inputTypes {

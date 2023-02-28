@@ -12,21 +12,18 @@ $yellow: #f8cd65
 $font1: JetBrainsMonoBold
 $font2: JetBrainsMonoBoldItalic
 
+//Screen sizes
+$tablet: 768px
+$desktop: 1440px
+
+$levels: ("0":transparent, "1": transparent, "2": $red, "3":$orange, "4": $yellow, "5": $green)
+
 
 @mixin level($value)
     width: 10px
     height: 28px
     border: 1px solid $white
-    @if $value == "1" or $value == "0"
-        background-color: transparent
-    @else if $value == "2"
-        background-color: $red
-    @else if $value == "3"
-        background-color: $orange
-    @else if $value == "4"
-        background-color: $yellow
-    @else if $value == "5"
-        background-color: $green
+    background-color: map-get($levels, $value)
     
 @mixin text($type, $size)
     font-family: $font1 

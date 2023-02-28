@@ -1,11 +1,21 @@
 import React from 'react';
 import { useAppSelector } from '../../hooks/reducerHooks';
 import { useGenerator } from '../../hooks/useGenerator';
-import "./_slider.sass"
+import './_slider.sass';
 export const Slider = () => {
-    const {handleSliderchange} = useGenerator()
-    const {sliderValue} = useAppSelector(state => state.generator)
-    return <div className='slider'>
-        <input type="range" min="0" max="20" value={sliderValue} onChange={handleSliderchange} className="slider--input"></input>
-    </div>;
+    const { handleSliderChange, sliderPercentage } = useGenerator();
+    const { sliderValue } = useAppSelector((state) => state.generator);
+    return (
+        <div className="slider">
+            <input
+                style={{ backgroundSize: `${sliderPercentage}% 100%` }}
+                type="range"
+                min="0"
+                max="20"
+                value={sliderValue}
+                onChange={handleSliderChange}
+                className="slider--input"
+            ></input>
+        </div>
+    );
 };

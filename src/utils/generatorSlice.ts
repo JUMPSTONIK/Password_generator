@@ -85,7 +85,6 @@ export const generatorSlice = createSlice({
             } else {
                 state.strength -= 1;
             }
-            // console.log(state)
         },
         setSliderValue: (state, action: PayloadAction<number>) => {
             state.sliderValue = action.payload;

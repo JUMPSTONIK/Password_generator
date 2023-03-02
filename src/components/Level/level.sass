@@ -2,17 +2,6 @@
     
 .level
 
-    &1
-        @include level("1")
-
-    &2
-        @include level("2")
-
-    &3
-        @include level("3")
-
-    &4
-        @include level("4")
-
-    &5
-        @include level("5")
+    @for $i from 1 through 5
+        &#{$i}
+            @include level("#{$i}")

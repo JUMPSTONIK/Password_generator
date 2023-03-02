@@ -10,7 +10,8 @@ export const Meter = () => {
     const { getStrengthType } = useGenerator();
     return (
         <div className="meter">
-            <h2>Strength</h2>
+            
+            <h2>STRENGTH</h2>
             <div className="meter--levels">
                 <p>{getStrengthType(strength)}</p>
                 <div className="meter--levels--indicator">

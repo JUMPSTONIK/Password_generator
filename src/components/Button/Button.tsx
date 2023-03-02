@@ -4,5 +4,5 @@ import './_button.sass'
 
 export const Button = () => {
     const {createPassword} = useGenerator()
-    return <button className='button' onClick={createPassword}> <span>Generate</span><span><IconArrowRight/></span> </button>;
+    return <button className='button' onClick={createPassword}> <span>GENERATE</span><span><IconArrowRight/></span> </button>;
 };

@@ -6,7 +6,7 @@ export const Slider = () => {
     const { handleSliderChange, sliderPercentage } = useGenerator();
     const { sliderValue } = useAppSelector((state) => state.generator);
     return (
-        <div className="slider">
+        <section className="slider">
             <input
                 style={{ backgroundSize: `${sliderPercentage}% 100%` }}
                 type="range"
@@ -16,6 +16,6 @@ export const Slider = () => {
                 onChange={handleSliderChange}
                 className="slider--input"
             ></input>
-        </div>
+        </section>
     );
 };

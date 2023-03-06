@@ -11,7 +11,7 @@ import { Settings } from './container/Settings/Settings';
 function App() {
     // console.log(checkBoxes);
     return (
-        <div className="password_generator">
+        <main className="password_generator">
             <Title title={`Password Generator`} />
             <PasswordGenerator />
             <Settings>
@@ -21,7 +21,7 @@ function App() {
                 <Meter />
                 <Button/>
             </Settings>
-        </div>
+        </main>
     );
 }
 

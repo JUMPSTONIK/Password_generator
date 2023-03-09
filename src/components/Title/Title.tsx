@@ -6,5 +6,9 @@ interface titleTypes {
 }
 
 export const Title = (props: titleTypes) => {
-    return <h1 className="title">{props.title}</h1>;
+    return(
+    <section>
+        <h1 className="title">{props.title}</h1>;
+    </section> 
+    ) 
 };

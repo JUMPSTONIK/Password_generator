@@ -7,21 +7,21 @@ export const PasswordGenerator = () => {
     const { setOnClipBoard } = useGenerator();
     const { password, isCopied } = useAppSelector((state) => state.generator);
     return (
-        <div className="password">
-            <label className='password--label' htmlFor="">
+        <section className="password">
+            <div className='password--label'>
                 <input
                     className="password--input_field"
                     placeholder="P4$5W0rD!"
                     value={password}
                     readOnly
                 />
-            </label>
-            <div className='password--interactive'>
+            </div>
+            <label className='password--interactive'>
                 {isCopied && <p className="password--interactive--copied">COPIED</p>}
                 <button className="password--interactive--btn" onClick={setOnClipBoard}>
                     <IconCopy />
                 </button>
-            </div>
-        </div>
+            </label>
+        </section>
     );
 };

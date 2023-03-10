@@ -17,7 +17,9 @@ $tablet: 768px
 $desktop: 1440px
 
 $levels: ("0":transparent, "1": transparent, "2": $red, "3":$orange, "4": $yellow, "5": $green)
-$fontSizeDesktop: ("small" : 1.8rem, "medium": 2.4rem, "large": 3.2rem)
+$fontSizeDeskAndTabs: ("small" : 1.8rem, "medium": 2.4rem, "large": 3.2rem)
+$fontSizeMobile: ("small" : 1.6rem, "medium": 1.8rem, "large": 2.4rem)
+$containerPaddingsDeskAndTabs: ("password" : 19px 32px, "settings": 24px 32px 32px, "meter": 24px 32px)
 $elementColor: ("title": $gray, "password": $white, "text": $white, "button": $black1, "interactive": $green)
 
 @mixin level($value)
@@ -30,7 +32,7 @@ $elementColor: ("title": $gray, "password": $white, "text": $white, "button": $b
     font-family: $font1 
     font-style: normal
     font-weight: 700
-    font-size: map-get($fontSizeDesktop, $size)
+    font-size: map-get($fontSizeMobile, $size)
     color: map-get($elementColor, $type)
     @if $type == "title"
         text-align: center
@@ -40,6 +42,9 @@ $elementColor: ("title": $gray, "password": $white, "text": $white, "button": $b
             color: $gray
     @if $type == "button"
         text-align: right
+
+    @media ( min-width: 768px  )
+        font-size: map-get($fontSizeDeskAndTabs, $size)
 
 
 @mixin container($type)
@@ -59,4 +64,5 @@ $elementColor: ("title": $gray, "password": $white, "text": $white, "button": $b
         background-color: $black2
         justify-content: space-between
         
-    
+    @media ( min-width: 768px )
+        padding: map-get($containerPaddingsDeskAndTabs, $type)
